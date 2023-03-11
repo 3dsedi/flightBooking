@@ -1137,7 +1137,65 @@ const FlightsData: FlightRoute [] =
                 }
             }
         ]
-    }
+    },
+    {
+        "route_id": "8efc397d",
+        "departureDestination": "Oslo",
+        "arrivalDestination": "Tehran",
+        "itineraries": [
+            {
+                "flight_id": "87211f9b",
+                "departureAt": "2023-03-29T11:00:00.000Z",
+                "arrivalAt": "2023-03-29T14:00:00.000Z",
+                "availableSeats": 0,
+                "prices": {
+                    "currency": "SEK",
+                    "adult": 88.14,
+                    "child": 93.88
+                }
+            },
+            {
+                "flight_id": "a4ppcd64",
+                "departureAt": "2023-03-30T11:00:00.000Z",
+                "arrivalAt": "2023-03-30T14:00:00.000Z",
+                "availableSeats": 82,
+                "prices": {
+                    "currency": "SEK",
+                    "adult": 96.31,
+                    "child": 64.35
+                }
+            }
+        ]
+    },
+    {
+        "route_id": "8efk397d",
+        "departureDestination": "Tehran",
+        "arrivalDestination": "Amsterdam",
+        "itineraries": [
+            {
+                "flight_id": "87o11f9b",
+                "departureAt": "2023-03-29T11:00:00.000Z",
+                "arrivalAt": "2023-03-29T14:00:00.000Z",
+                "availableSeats": 0,
+                "prices": {
+                    "currency": "SEK",
+                    "adult": 88.14,
+                    "child": 93.88
+                }
+            },
+            {
+                "flight_id": "a4npcd64",
+                "departureAt": "2023-03-30T11:00:00.000Z",
+                "arrivalAt": "2023-03-30T14:00:00.000Z",
+                "availableSeats": 82,
+                "prices": {
+                    "currency": "SEK",
+                    "adult": 96.31,
+                    "child": 64.35
+                }
+            }
+        ]
+    },
 ]
 
 
