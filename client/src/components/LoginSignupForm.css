@@ -1,0 +1,28 @@
+.btn-primary{
+    color: white;
+    background-color: #ff966e;
+    width: 200px;
+    border-color: #ff966e;
+    font-weight: bold;
+    margin-bottom: 10px;
+    height: 30px;
+    font-size: 10px;
+}
+.btn-primary:hover{
+    background-color: #6895fe;
+    border-color: #6895fe ;
+
+}
+
+@media (max-width: 767px) {
+.login_input{
+    margin-top: px;
+}
+.login_form{
+    margin-top: -150px;
+    background-color: aquamarine;
+}
+.ogin_back{
+    height: 200px;
+}
+}

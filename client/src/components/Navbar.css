@@ -1,0 +1,21 @@
+.btn-outline-secondary:hover {
+    background-color: #30d5a0;
+    border-color:#30d5a0;
+    color: white;
+  }
+  .container-fluid{
+    margin-left: 90px;
+    margin-right: 90px;
+  }
+  .close{
+    border-color: aliceblue;
+    border-radius: 25px;
+    width: 30px;
+    height: 30px;
+  }
+  @media (max-width: 767px) {
+    .container-fluid {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+  }
