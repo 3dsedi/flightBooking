@@ -1,0 +1,14 @@
+.search_title{
+    text-align: center;
+    color: aliceblue;
+    padding-top: 15px;
+}
+.bg-gray {
+    background-color: #e1e2e3;
+ margin: 0px;
+  }
+  .col-sm-12{
+    margin: 10px;
+   width: 700px;
+   align-items: center;
+  }
