@@ -80,7 +80,7 @@ export function oneWayDirectFlightsByLocationDate(from: string, to: string, date
   }
 }
 
-// get direct and conectioon flights by location
+// get direct and conection flights by location
 
 export function findOneWayFlight(from: string, to: string) {
   const directFlights = oneWayDirectFlightsByLocation(from, to);

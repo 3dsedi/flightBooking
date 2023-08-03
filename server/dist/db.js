@@ -67,7 +67,7 @@ function oneWayDirectFlightsByLocationDate(from, to, date) {
     }
 }
 exports.oneWayDirectFlightsByLocationDate = oneWayDirectFlightsByLocationDate;
-// get direct and conectioon flights by location
+// get direct and conection flights by location
 function findOneWayFlight(from, to) {
     const directFlights = oneWayDirectFlightsByLocation(from, to);
     if (directFlights.length > 0) {

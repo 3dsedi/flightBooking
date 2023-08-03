@@ -3,26 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { Card, Nav, Button } from "react-bootstrap";
 import "./Home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Bg from "./background.png";
-import kish from "./kish.png";
-import yazd from "./yazd.png";
-import shiraz from "./shiraz.png";
-import ramsar from "./ramsar.png";
-import tehran from "./tehran.png";
-import kavir from "./kavir.png";
-import {
-  FaTrain,
-  FaPlane,
-  FaHotel,
-  FaPlaneDeparture,
-  FaPlaneArrival,
-  FaCalendarAlt,
-  FaMapMarkerAlt,
-} from "react-icons/fa";
-import {
-  BsFillTrainFreightFrontFill,
-  BsFillTrainFrontFill,
-} from "react-icons/bs";
+import Bg from "./pics/background.png";
+
+import {FaPlaneDeparture,FaPlaneArrival, FaCalendarAlt,} from "react-icons/fa";
+
+import Suggestions from "./Suggestion";
 
 interface SearchFormProps {
     onSearch: (enteredData:{from: string, to: string, date: string, directFlight: boolean} ) => void;
@@ -57,7 +42,7 @@ const Home: React.FC<SearchFormProps> = ({onSearch}) => {
           backgroundImage: `url(${Bg})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          height: "120vh",
+          height: "80vh",
         }}
       >
         <div style={{ maxWidth: "600px", margin: "auto", paddingTop: "30px" }}>
@@ -143,37 +128,7 @@ const Home: React.FC<SearchFormProps> = ({onSearch}) => {
           </Card>
         </div>
       </div>
-      <div className="row">
-        <h3
-          style={{
-            color: "#4885ff",
-            fontSize: "40px",
-            textAlign: "left",
-            marginBottom: "10px",
-            fontWeight: "bold"
-          }}
-        >
-          FLIGHTIO Suggestions
-        </h3>
-        <div className="col-md-4">
-          <img className="img-style" src={shiraz} alt="shiraz" />
-        </div>
-        <div className="col-md-4">
-          <img className="img-style" src={yazd} alt="yazd" />
-        </div>
-        <div className="col-md-4">
-          <img className="img-style" src={kish} alt="kish" />
-        </div>
-        <div className="col-md-4">
-          <img className="img-style" src={ramsar} alt="ramsar" />
-        </div>
-        <div className="col-md-4">
-          <img className="img-style" src={kavir} alt="kavir" />
-        </div>
-        <div className="col-md-4">
-          <img className="img-style" src={tehran} alt="tehran" />
-        </div>
-      </div>
+     <Suggestions/>
     </div>
   );
 };

@@ -34,32 +34,54 @@ app.post("/api/flights", cors(), (req: Request, res: Response) => {
       const availableFlights = directFlight ? 
         oneWayDirectFlightsByLocationDate(from, to, date) :
         findOneWayFlightByLocationDate(from, to, date);
+        console.log(availableFlights)
+       
 
       if ( Object.keys(availableFlights).length === 0 ) {
         return res.status(404).json({
           error: `No flights found from ${from} to ${to} departing on ${date}`,
         });
       }
-      console.log(availableFlights)
       return res.status(200).json({
-        message: `${Object.keys(availableFlights).length} flights available`,
+        message: `${Object.keys(availableFlights).length} flights available from ${from} to ${to} on ${date}`,
         availableFlights,
       });
     } else if (from && to) {
       const availableFlightsByLocation = directFlight ? 
         oneWayDirectFlightsByLocation(from, to) :
         findOneWayFlight(from, to);
+        console.log(availableFlightsByLocation)
       
-      if (Object.keys(availableFlightsByLocation).length === 0) {
-        return res.status(404).json({
-          error: `No flights found from ${from} to ${to}`,
-        });
-      }
-      
-      return res.status(200).json({
-        message: `${Object.keys(availableFlightsByLocation).length} flights available`,
-        flights: availableFlightsByLocation,
-      });
+        if (Array.isArray(availableFlightsByLocation)) {
+        
+          if (availableFlightsByLocation.length === 0) {
+            return res.status(404).json({
+              error: `No flights found from ${from} to ${to}`,
+            });
+          }
+        
+          return res.status(200).json({
+            message: `${availableFlightsByLocation.length} flights available from ${from} to ${to}`,
+            flights: availableFlightsByLocation,
+          });
+        } else {
+         
+          const flightsToConnectionDestination = availableFlightsByLocation.connectionFlights.map((flight) => flight.itineraries[0]);
+          const flightsToArrivalDestination = availableFlightsByLocation.flightsToArrivalDestination.map((flight) => flight.itineraries[0]);
+        
+          const allFlights = [...flightsToConnectionDestination, ...flightsToArrivalDestination];
+        
+          if (allFlights.length === 0) {
+            return res.status(404).json({
+              error: `No flights found from ${from} to ${to}`,
+            });
+          }
+        
+          return res.status(200).json({
+            message: `${allFlights.length} flights available from ${from} to ${to}`,
+            flights: allFlights,
+          });
+        }
 
     } else if (date) {
       const departureTimes = getDepartureFlightsByDay(date);
@@ -76,7 +98,7 @@ app.post("/api/flights", cors(), (req: Request, res: Response) => {
       });
     } else {
       return res.status(400).json({
-        error: "Bad Request: Please provide 'from' and 'to' or 'date' in the request body",
+        error: " 7 Bad Request: Please provide 'from' and 'to' or 'date' in the request body",
       });
     }
   } catch (error) {
